@@ -21,7 +21,7 @@ var x2 = [[0],[0]];
 var x3 = [[0],[0]];
 var x4 = [[0],[0]];
 var count = 0;
-
+var start = false;
 //import { create, all } from 'C:\Users\justi\node_modules\mathjs\lib\browser\math.js';
 //const config = { };
 //const math = create(all, config);
@@ -57,16 +57,21 @@ form.addEventListener('submit', e => {
     clearError(sp4);
     clearError(sp5);
     
-    const start = validateInputs();
+    start = validateInputs();
     console.log(start);
     if(start==true){
         window.requestAnimationFrame(main)
     } else {
         console.log('not true')
     }
-    
 });
-    
+
+const stopBtn = document.getElementById("stopBtn");
+stopBtn.addEventListener("click", function(){
+    console.log("STOP");
+    start = false;
+});
+
 
 
 const clearError = element => {
@@ -212,11 +217,19 @@ const validateInputs = () => {
 let lastRenderTime = 0;
 const fps = 100;
 
-
+var start = true
 function main(currentTime) {
-    window.requestAnimationFrame(main)
+    
+    stopBtn.addEventListener("click", function(){
+        console.log("STOP");
+        start = false;
+
+    });
+    if(start==true){
+        window.requestAnimationFrame(main)
+    };
     var dt = (currentTime - lastRenderTime)/1000;
-    console.log(dt)
+    console.log(start)
     if (dt < 1/fps) return
     lastRenderTime = currentTime;
     update(dt);
@@ -248,6 +261,13 @@ function update(dt) {
     let cart3 = document.querySelector('.cart3');
     let cart4 = document.querySelector('.cart4');
 
+    stopBtn.addEventListener("click", function(){
+        console.log("STOP");
+        start = false;
+        count = 0;
+
+    });
+
     var Vo = new Array([[0],[0]]);
     //var K = 
     if(numCartsValue == '2'){
@@ -267,8 +287,9 @@ function update(dt) {
         if(count < 10){
             console.log('true');
             console.log();
-            x1[0][0] = parseFloat(eqdis1 + in1Value/scale_r);        //[[eqdis1 + in1Value/scale_r],[0]];
+            //x1[0][0] = parseFloat(eqdis1 + in1Value/scale_r);        //[[eqdis1 + in1Value/scale_r],[0]];
             x2 = [[eqdis2 + in2Value/scale_r],[0]];
+            x1 = [[eqdis1 + in1Value/scale_r],[0]];
             dt = 0;
             //x1[0] = ;
             //x2[0] = ;
@@ -334,7 +355,7 @@ function update(dt) {
         if(count < 10){
             console.log('true');
             console.log();
-            x1[0][0] = parseFloat(eqdis1 + in1Value/scale_r);        //[[eqdis1 + in1Value/scale_r],[0]];
+            x1 = [[eqdis1 + in1Value/scale_r],[0]];
             x2 = [[eqdis2 + in2Value/scale_r],[0]];
             x3 = [[eqdis3 + in3Value/scale_r],[0]];
             dt = 0;
@@ -406,7 +427,7 @@ function update(dt) {
         if(count < 10){
             console.log('true');
             console.log();
-            x1[0][0] = parseFloat(eqdis1 + in1Value/scale_r);        //[[eqdis1 + in1Value/scale_r],[0]];
+            x1 = [[eqdis1 + in1Value/scale_r],[0]];
             x2 = [[eqdis2 + in2Value/scale_r],[0]];
             x3 = [[eqdis3 + in3Value/scale_r],[0]];
             x4 = [[eqdis4 + in4Value/scale_r],[0]];
