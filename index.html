@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <script src="math.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <script defer src="index.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="box-1">
+            <h1>Coupled Oscillator Sim</h1>
+        </div>
+        <div class="box-2">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio est quod eos quisquam laborum tempore, dolorum rem. Tempore quasi saepe aperiam, voluptas fugiat consequatur fugit quam nobis distinctio, vel voluptate?
+
+            </p>
+        </div>
+        <form class="starting-form" id="form">
+            <div class="block">
+                <h3>Experiment</h3>
+                <div class="input-control">
+                    <label>Number of Carts</label>
+                    <select name="numCarts" id="numCarts">
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <br>
+                </div>
+                <div class="input-control">
+                    <label>SloMo Mode</label>
+                    <select id="sloMo">
+                        <option value="False">False</option>
+                        <option value="True">True</option>
+                    </select>
+                    <br>
+                </div>
+                <div class="input-control">
+                    <label>Left Wall Position (cm)</label>
+                    <input type="number" id="lwp">
+                </div>
+                <div class="input-control">
+                    <label>Right Wall Position (cm)</label>
+                    <input type="number" id="rwp">
+                </div>
+                
+                <h3>Initial Positions</h3> 
+                <div class="input-control">
+                    <label>Initial Position for mass #1 (cm)</label>
+                    <input type="number" id="in1">
+                </div>
+                <div class="input-control">
+                    <label>Initial Position for mass #2 (cm)</label>
+                    <input type="number" id="in2">
+                </div>
+                <div class="input-control">
+                    <label>Initial Position for mass #3 (cm)</label>
+                    <input type="number" id="in3">
+                </div>
+                <div class="input-control">
+                    <label>Initial Position for mass #4 (cm)</label>
+                    <input type="number" id="in4">
+                </div>
+            </div>
+            <div class="block">
+                <h3>Springs</h3> 
+                <div class="input-control">
+                    <label>Spring #1</label>
+                    <input type="number" id="sp1">
+                </div>
+                <div class="input-control">
+                    <label>Spring #2</label>
+                    <input type="number" id="sp2">
+                </div>
+                <div class="input-control">
+                    <label>Spring #3</label>
+                    <input type="number" id="sp3">
+                </div>
+                <div class="input-control">
+                    <label>Spring #4</label>
+                    <input type="number" id="sp4">
+                </div>
+                <div class="input-control">
+                    <label>Spring #5</label>
+                    <input type="number" id="sp5">
+                </div>
+            
+                <h3>Masses</h3> 
+                <div class="input-control">
+                    <label>Mass #1 (g)</label>
+                    <input type="number" id="ma1">
+                </div>
+                <div class="input-control">
+                    <label>Mass #2 (g)</label>
+                    <input type="number" id="ma2">
+                </div>
+                <div class="input-control">
+                    <label>Mass #3 (g)</label>
+                    <input type="number" id="ma3">
+                </div>
+                <div class="input-control">
+                    <label>Mass #4 (g)</label>
+                    <input type="number" id="ma4">
+                </div>
+            </div>
+            <div class="fullBlock">
+                <input class="button" type="submit" name="start" value="START">
+            </div>
+            
+
+        </form>
+        <div class="clr"></div>
+
+        <div class="p-box">
+            <div class="cart1"></div>
+            <div class="cart2"></div>
+            <div class="cart3"></div>
+            <div class="cart4"></div>
+            <h2>Hello</h2>
+        </div>
+
+        <div id="main-block">
+            <h3>Heading</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aspernatur harum earum magnam odio? Alias odit officia rem earum doloribus ipsum numquam, temporibus vitae placeat pariatur fuga consectetur sed soluta!
+            </p>
+        </div>
+    
+        <div id="side-bar">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aspernatur harum earum magnam odio? Alias odit officia rem earum doloribus ipsum numquam, temporibus vitae placeat pariatur fuga consectetur sed soluta!
+            </p>
+        </div>
+    </div>
+    <div style="margin-top: 500px;"></div>
+</body>
+</html>
