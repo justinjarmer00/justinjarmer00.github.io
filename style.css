@@ -26,6 +26,7 @@ body{
     background-color: #333;
     color: #fff;
     padding: 10px 15px;
+    
     border: none
 }
 
@@ -40,32 +41,59 @@ body{
 }
 
 .box-1{
-    background-color: #333;
-    color: #fff;
-
-    border: 5px red solid;
     
-    padding: 20px;
-    padding-top: 0px;
+    color: purple;
+
+    /*border: 5px red solid;
+    background-color: gold;*/
+    padding-left: 20px;
+    padding-top: 20px;
 
     margin-top: 20px;
     margin: 20px 0;
 }
 
 .box-1 h1{
+    font-size: 40px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 800;
-    font-style: italic;
-    text-decoration: underline;
+    
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    word-spacing: 0.3em;
+    
 }
 
 .box-2{
-    border: 3px dotted #ccc;
+    /*border: 3px dotted #ccc;*/
     padding: 20px;
     margin: 20px 0;
+}
+
+.spPng img{
+    display:block;
+    position: absolute;
+    top: 30%;
+    height: 20px;
+    width: 0px; 
+       
+}
+
+#ogLabImg{
+    position: relative;
+    width: 95%;
+    left: 2.5%;
+    border-radius: 20px;
+}
+#TableofModes{
+    position: relative;
+    width: 90%;
+    left: 5%;
+    border-radius: 20px;
+}
+#ExperimentResults{
+    position: relative;
+    width: 90%;
+    left: 5%;
+    border-radius: 20px;
 }
 
 .starting-form{
@@ -85,7 +113,6 @@ body{
 .starting-form input[type="text"], .my-form textarea, .my-form input[type="email"]{
     padding: 8px;
     width: 100%;
-
 }
 
 .input-control {
@@ -99,7 +126,7 @@ body{
 	display: block;
 	font-size: 12px;
 	padding: 10px;
-	width: 80%;
+	width: 100%;
 }
 
 .input-control input:focus {
@@ -123,7 +150,8 @@ body{
 .block{
     float:left;
     width: 50%;
-    padding: 10px;
+    padding: 30px;
+    padding-top: 0px;
     box-sizing: border-box;
 }
 
@@ -131,35 +159,38 @@ body{
     float:left;
     width: 100%;
     padding: 10px;
-    padding-bottom: 50px;
-    margin-bottom: 50px;
 }
 
 #main-block{
     float: left;
-    width: 70%;
+    width: 50%;
     padding: 15px;
     box-sizing: border-box;
 }
 
 #side-bar{
     float: right;
-    width: 30%;
-    background-color: #333;
+    width: 50%;
     color: #fff;
-    padding: 15px;
+    padding: 0px;
     box-sizing: border-box;
-
 }
 
 .p-box{
-    width: 1000px;
-    height: 500px;
-    border: 1px solid #000;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    
+    height: 300px;
+    overflow: hidden;   
+    border: 1px solid silver;
+    border-left: 20px solid darkgrey;
+    border-right: 20px solid darkgrey;
+    margin: 30px;
+    margin-top: 0px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 0px;
     position: relative;
     background-color: skyblue;
+    border-radius: 25px;
     /* background-image: url(/sample.JPG); 
 
     background-position: 100px 200px;
@@ -169,36 +200,64 @@ body{
 
 .cart1{
     position: absolute;
-    width: 50px;
+    width: 80px;
     height: 50px;
     background-color: black;
-    top: 100px;
-    left: 100px;
+    top: 25%;
+    left: -10%;
+    border-radius: 10px;
 }
 
 .cart2{
     position: absolute;
-    width: 50px;
+    width: 80px;
     height: 50px;
     background-color: black;
-    top: 100px;
-    left: 100px;
+    top: 25%;
+    left: -10%;
+    border-radius: 10px;
 }
 .cart3{
     position: absolute;
-    width: 50px;
+    width: 80px;
     height: 50px;
     background-color: black;
-    top: 100px;
-    left: 100px;
+    top: 25%;
+    left: -10%;
+    border-radius: 10px;
 }
 .cart4{
     position: absolute;
-    width: 50px;
+    width: 80px;
     height: 50px;
     background-color: black;
-    top: 100px;
-    left: 100px;
+    top: 25%;
+    left: -10%;
+    border-radius: 10px;
+}
+.rail{
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    top: 35%;
+    background-color: silver;
+    left: 0%;
+}
+.dashboard{
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    bottom: 0px;
+    left: 0px;
+    background-color: burlywood;
+}
+.timer{
+    background-color: white;
+    border: 1px solid black;
+    right: 30px;
+    width: 10%;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .p-box h1{
@@ -209,7 +268,8 @@ body{
 
 .p-box h2{
     position: absolute;
-    bottom: 40px;
-    right: 100px;
+    bottom: 10%;
+    /*left: 90%;*/
+    font-size: 20px;
 
 }
