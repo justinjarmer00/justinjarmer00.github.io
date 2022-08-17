@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Evolution Board Game, A Saxy Saxon, Evolution Board Game Played by Computer">
+    <title>Evolution Board Game Played by Computer</title>
+    <script src="math.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <script defer src="evolutionMain.js"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EGLL7J3W9L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EGLL7J3W9L');
+</script>
+<body>
+    <div class="container">
+        <h2>Evolution Board Game Played by Computer</h2>
+    </div>
+    <h3 id="initCountDown1"></h3>
+    <h3 id="initCountDown2"></h3>
+    <div class="chartContainer">
+        <canvas id="chart" width="400" height="400"></canvas>
+    </div>
+    <h1 id="initCountDown"></h1>
+    <form class="starting-form" id="form">
+        <div class="block">
+            
+            <h4>Game Parameters:</h4>
+            <fieldset>
+                <legend>Run Parameters:</legend>
+                <label>Initial Number of species</label>
+                <input type="number" step="1" id="initialNSpecies" value="20"><br>
+                <label>Number of species added every round</label>
+                <input type="number" step="1" id="addedNSpecies" value="5"><br>
+                <label>Number of Rounds</label>
+                <input type="number" step="1" id="nRnds" value="100" min="1" max="1000">
+            </fieldset>
+            <fieldset>
+                <legend>WateringHole Parameters:</legend>
+                <label>Size of WateringHole</label>
+                <input type="number" step="1" id="wateringHoleSize" value="100" min="0" max="10000"><br>
+                <label># of RandonNumbers averaged</label>
+                <input type="number" step="1" id="numRandnum" value="30" min="1" max="100">
+                <label>--> Standard Error:</label>
+                <input type="number" step="1" id="stanErrorWater" value="5.27" disabled>
+
+            </fieldset>
+            <fieldset>
+                <legend>Random Species Generation Parameters</legend>
+                <label>Probability of Body Size: 1</label>
+                <input type="number" step="any" id="pBody1" value="0.30" min="0" max="1">
+                <label>, Body Size: 2</label>
+                <input type="number" step="any" id="pBody2" value="0.21" min="0" max="1"><br>
+                <label>Probability of Body Size: 3</label>
+                <input type="number" step="any" id="pBody3" value="0.196" min="0" max="1">
+                <label>, Body Size: 4</label>
+                <input type="number" step="any" id="pBody4" value="0.147" min="0" max="1"><br>
+                <label>Probability of Body Size: 5</label>
+                <input type="number" step="any" id="pBody5" value="0.089" min="0" max="1">
+                <label>, Body Size: 6</label>
+                <input type="number" step="any" id="pBody6" value="0.059" min="0" max="1" disabled><br>
+                <label>Probability of Plant FoodType</label>
+                <input type="number" step="any" id="pTOm" value="0.70" min="0" max="1"><label>, Meat FoodType</label>
+                <input type="number" step="any" id="pTOm2" value="0.30" min="0" max="1" disabled>
+            </fieldset>
+
+            <fieldset>
+                <legend>Climate Settings:</legend>
+                <label>Climate On:</label>
+                <input type="checkbox" name="climateOn" checked disabled><br>
+                <label>Number of Functions (in Fourier Series)</label>
+                <input type="number" step="any" id="numFunctions" value="100" min="1" max="200"><br>
+                <label>Decay of Fourier Coefficients (scales the RandNums)</label>
+                <input type="number" step="any" id="decayRate" value="1.3" min="0" max="10"><br>
+                <label>Amplitude Modifier</label>
+                <input type="number" step="any" id="ampMod" value="1.2" min="0" max="2"><br>
+                <label>#of Rnds Before Function Repeats</label>
+                <input type="number" step="any" id="rndsBFRep" value="100" min="0" max="1000"><br>
+                <label>Average decrease in population at +- 0.5 climate:</label>
+                <input type="number" step="any" id="cValueMod" value="2" min="0" max="20"><br>
+                <label>Max additional decrease based on body size:</label>
+                <input type="number" step="any" id="bValueMod" value="1" min="0" max="10">
+            </fieldset>
+        </div>
+        <div class="block">
+            <h4>Output Parameters:</h4>
+            <fieldset>
+                <legend>By Trait Bar Chart</legend>
+                <input type="checkbox" name="traitBarChart" value="aveLifeByTrait" checked>Averate Rnds Survived By Trait<br>
+                <input type="checkbox" name="traitBarChart" value="aveFoodByTrait" checked>Average Food By Trait<br>
+                <input type="checkbox" name="traitBarChart" value="aveFoodByTrait">Average Population by Trait<br>
+                <label>Avg from Rnd:</label>
+                <input type="number" step="any" id="rStart" value="1" min="-100000" max="100000">
+                <label>to:</label>
+                <input type="number" step="any" id="rEnd" value="100" min="-100000" max="100000">
+            </fieldset>
+            <fieldset>
+                <legend>By Rnd Line Chart</legend>
+                <input type="checkbox" name="lineChart" value="initFood" checked>Initial Food Available<br>
+                <input type="checkbox" name="lineChart" value="remainingFood">Food Left Over<br>
+                <input type="checkbox" name="lineChart" value="climateByRnd" checked>Sum of all living species population by Rnd<br>
+                <input type="checkbox" name="lineChart" value="climateByRnd"># Species that Died by Rnd<br>
+                <input type="checkbox" name="lineChart" value="climateByRnd"># Species that Survived by Rnd<br>
+                <input type="checkbox" name="lineChart" value="climateByRnd" checked>Climate<br>
+            </fieldset>
+            <fieldset>
+                <legend>Chart Scale Parameters:</legend>
+                <label>User Sugested Scale Limits (left), min:</label>
+                <input type="number" step="any" id="lMin" value="0" min="-100000" max="100000">
+                <label>max:</label>
+                <input type="number" step="any" id="lMax" value="200" min="-100000" max="100000"><br>
+                <label>User Sugested Scale Limits (right), min:</label>
+                <input type="number" step="any" id="rMin" value="-1" min="-100" max="100">
+                <label>max:</label>
+                <input type="number" step="any" id="rMax" value="1" min="-100" max="100">
+            </fieldset>
+        </div>
+        <div class="block">
+            <label> Step #1: </label>
+            <button id="genClimate" class="button" type="button">Generate Climate</button><br>
+            <label> Step #2: </label>
+            <input class="button" type="submit" name="run" value="RUN"><br>
+            <label> Step #3: </label>
+            <button id="printTBarChart" class="button" type="button">Print By Trait Bar Chart</button>
+            <button id="printLineChart" class="button" type="button">Print By Rnd Line Chart</button>
+
+            <h4 id="countDown" class="timer">Progress:</h4>
+            
+        </div>
+    </form>
+    <div class="block_full">
+        <h2>Game Rules/Instructions/Documentation:</h2>
+        <p>Original Rules (by North Star Games): <a href="Evolution_Climate_rules.pdf" target="_blank">Evolution_Climate_rules.pdf</a></p>
+        
+    </div>
+    <div class="block_full">
+        <h3>Climate:</h3>
+        <p>Climate mechanics were changed significantly from the original game rules. Originally, food cards revealed at the beginning of each round would step the climate warmer or colder between 9 different “Climate Zones”. Each zone would have a different effect on the game with extreme hot and cold climates having a significant effect on the living species. Additionally, cards called “Climate Events” would be triggered that would cause more dramatic variation in the climate. In this simulation climamte and its effect is calculated using a randomly generated, smooth & continuous function.</p>
+        <div class="block">
+            <h4>Climate Generation:</h4>
+            <p>To create a climate that was smooth and continuous, a function was made to randomly generate Fourier series with a few provided parameters. The Fourier Series is a sum of the function An*cos(n*x + Φn) with “n” starting at 1 and going to the value entered in “Number of Functions” under “Climate Settings”. The amplitude of each function “An” is created by first getting the value of the function (rand_num >0,<1)*(decayRate)^(-n). The decayRate is a free choice that can be entered in “Decay of Fourier Coefficients” under “Climate Settings”. This function allows the option to force (on average) a decrease in the size of An as “n” increases. Additionally, the coefficients are normalized by dividing each by their sum, this way, under fully constructive interference, the value of the Fourier series at any point will be >= -1 and <= +1 (unless the “amplitude modifier” > 1). Each An is then multiplied by the “Amplitude Modifier” which can be entered under “Climate Settings”. The Amplitude Modifier allows the user to “stretch” the Fourier series vertically. The Fourier series can be stretched/compressed horizontally by changing the “#of Rnds Before Function Repeats” which is under “Climate Settings”. Climate can be displayed once generated before or after "Running" the round by running "Print By Rnd Line Chart".</p>
+            <h4>Climate Effect on Species:</h4>
+            <p>Because the climate is a continuous function and not a step as in the board game, a new continuous function to determine the climates effects on the species needed to be made. This function is A*|climateValue| + B*((bodySize - 3.5)*climateValue) where its value is used as the expected population loss for a given species (with some random variation). “A” can be changed from “Average decease in pop…” and scales the effect of the climate on all species. “B” can be changed from “Max additional dec..” and scales the effect of bodySize on population loss: during cold weather a small animal will lose more population than average, and a larger animal will lose less than average (opposite for hot weather). Traits: for every 1 population loss that the trait would have been prevented in the board game now prevents 0.5 population loss on average (because of added randomness).  The final logic that determines the population loss is: floor{(rand-num >-0.5, <0.5) + (*above function*) - (sum of trait modifications)}. </p>
+        </div>
+    </div>
+    <div class="block_full">
+        <h3>WateringHole/Feeding/SpeciesGeneration:</h3>
+        <div class="block">
+            <p>The initial food available in the watering hole is determined each round by averaging ‘n’ # of random numbers which are scaled both by the chosen watering hole size and the climate of that round. Then number of random numbers averaged can be chosen by the user under “WateringHole Parameters”. An example: with climate= 0, WateringHoleSize = 100, & ‘n’ = 10, the watering hole size for that round would be the average of 10 random numbers between 0 and 200. Another example: climate -0.2 (or +0.2), WateringHoleSize = 100, & ‘n’ = 10, the watering hole size for that round would be the average of 10 random numbers between 0 and 2*(1-climate)*WateringHoleSize or 0 and 160.
+            <br><br>
+            At the beginning of each round, the list of living species is shuffled randomly, and each species takes its turn based off the lists order. The effect of traits on the feeding resembled the original rules as much as possible with as little adjustments as possible. One of the most important adjustments however was to how a carnivore determines its pray. Unlike in the original rules, defensive and offensive traits effected the probability of a species getting eaten, not a plain can/cannot. This seemed more realistic to me (even an animal that can climb may be within reach of a non-climbing predator if it falls or lives some of its life on the ground) and also made the simulation more interesting (weaker animals were not targeted as hard and even the strongest could be picked of every once and a while.
+            <br><br>
+            Unlike in the original rules, the body size and traits of a species cannot change. Additionally, a new species is automatically granted 4 random traits (available to its food type). The body size and food type are assigned based off the probabilities that can be chosen under “Random Species Generation Parameters”.
+            </p>
+        </div>
+    </div>
+   
+    
+    
+</body>
+

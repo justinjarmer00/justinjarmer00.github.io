@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Coupled Oscillator Simulator, A Saxy Saxon, coupled oscillator simulation">
+    <title>Coupled Oscillator Simulator</title>
+    <script src="math.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <script defer src="index.js"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EGLL7J3W9L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EGLL7J3W9L');
+</script>
+
+<body>
+    <div class="container">
+        <div class="box-1">
+            <h1>Coupled Oscillator Simulator</h1>
+        </div>
+        <div class="box-2">
+            <p>
+                The mathematical model below was designed to complement a coupled oscillator lab that used an Air Track. An oscillator is a system that periodically changes its energy and can be either mechanical or electronic. Oscillators are coupled when their connection allows them to exchange their energy. In the case of this lab, the spring and cart system is a mechanical system that periodically converts potential energy to kinetic energy, and similarly kinetic to potential. The coupled oscillator model can be applied to many areas of physics such as the interatomic bonds in atoms and the Earth/Moon/Sun orbiting system. 
+
+            </p>
+        </div>
+        <div class="p-box" id="p-box">
+            <div class="rail"></div>
+            <div class="dashboard"></div>
+            <div class="cart1"></div>
+            <div class="cart2"></div>
+            <div class="cart3"></div>
+            <div class="cart4"></div>
+
+            <div class="spPng" >
+                <img src="SpringCoil.png" id="spPng11">
+            </div>
+            <div class="spPng" >
+                <img src="SpringCoil.png" id="spPng21">
+            </div>
+            <div class="spPng" >
+                <img src="SpringCoil.png" id="spPng31">
+            </div>
+            <div class="spPng" >
+                <img src="SpringCoil.png" id="spPng41">
+            </div>
+            <div class="spPng" >
+                <img src="SpringCoil.png" id="spPng51">
+            </div>
+
+            <h2 id="simTime" class="timer">0.00</h2>
+            <h2 id="cart1Count"></h2>
+            <h2 id="cart2Count"></h2>
+            <h2 id="cart3Count"></h2>
+            <h2 id="cart4Count"></h2>
+            <h2 id="frq1"></h2>
+            <h2 id="frq2"></h2>
+            <h2 id="frq3"></h2>
+            <h2 id="frq4"></h2>
+            <h2 id="countTitle">Count:</h2>
+            <h2 id="frqTitle">Ang. Freq:</h2>
+            <h2 id="cart1Title"></h2>
+            <h2 id="cart2Title"></h2>
+            <h2 id="cart3Title"></h2>
+            <h2 id="cart4Title"></h2>
+        </div>
+        <form class="starting-form" id="form">
+            <div class="fullBlock">
+                <input class="button" type="submit" name="start" value="START">
+                <button id="stopBtn" class="button" type="button">STOP</button>
+            </div>
+            <div class="block">
+                <h3>Experiment Parameters</h3>
+                <div class="input-control">
+                    <label>Number of Carts</label>
+                    <select name="numCarts" id="numCarts">
+                        <option value="2">2</option>
+                        <option value="3" selected="selected">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <br>
+                </div>
+                <!--<div class="input-control">
+                    <label>SloMo Mode</label>
+                    <select id="sloMo">
+                        <option value="False">False</option>
+                        <option value="True">True</option>
+                    </select>
+                    <br>
+                </div>-->
+                <div class="input-control">
+                    <label>Left Wall Position (cm)</label>
+                    <input type="number" step="any" id="lwp" value="16.3">
+                </div>
+                <div class="input-control">
+                    <label>Right Wall Position (cm)</label>
+                    <input type="number" step="any" id="rwp" value="92.0">
+                </div>
+                <h3>Spring Constants</h3> 
+                <div class="input-control">
+                    <label>Spring #1 (N/m)</label>
+                    <input type="number" step="any" id="sp1" value="5.0527">
+                </div>
+                <div class="input-control">
+                    <label>Spring #2 (N/m)</label>
+                    <input type="number" step="any" id="sp2" value="4.9005">
+                </div>
+                <div class="input-control">
+                    <label>Spring #3 (N/m)</label>
+                    <input type="number" step="any" id="sp3" value="5.0779">
+                </div>
+                <div class="input-control">
+                    <label>Spring #4 (N/m)</label>
+                    <input type="number" step="any" id="sp4" value="4.9038">
+                </div>
+                <div class="input-control">
+                    <label>Spring #5 (N/m)</label>
+                    <input type="number" step="any" id="sp5">
+                </div>
+                
+            </div>
+            <div class="block">
+                <h3>Initial Displacements</h3> 
+                <div class="input-control">
+                    <label>Initial Displacement of mass #1 (cm)</label>
+                    <input type="number" step="any" id="in1" value="1.4142">
+                </div>
+                <div class="input-control">
+                    <label>Initial Displacement of mass #2 (cm)</label>
+                    <input type="number" step="any" id="in2" value="-2">
+                </div>
+                <div class="input-control">
+                    <label>Initial Displacement of mass #3 (cm)</label>
+                    <input type="number" step="any" id="in3" value="1.4142">
+                </div>
+                <div class="input-control">
+                    <label>Initial Displacement of mass #4 (cm)</label>
+                    <input type="number" step="any" id="in4">
+                </div>
+            
+                <h3>Masses</h3> 
+                <div class="input-control">
+                    <label>Mass #1 (g)</label>
+                    <input type="number" step="any" id="ma1" value="187">
+                </div>
+                <div class="input-control">
+                    <label>Mass #2 (g)</label>
+                    <input type="number" step="any" id="ma2" value="184.8">
+                </div>
+                <div class="input-control">
+                    <label>Mass #3 (g)</label>
+                    <input type="number" step="any" id="ma3" value="185">
+                </div>
+                <div class="input-control">
+                    <label>Mass #4 (g)</label>
+                    <input type="number" step="any" id="ma4">
+                </div>
+            </div>        
+
+        </form>
+        
+        <div class="clr"></div>
+        
+        <img id="ogLabImg" src="OGexperi.jpg" alt="Lab set-up">
+
+        <div class="fullBlock">
+            <div id="main-block">
+                <h3>Original Experiment</h3>
+                <p>
+                    In the original experiment, the fundamental oscillating modes for the 2-cart and 3-cart were studied and the mathematical theory was verified experimentally with the Air Tracks. Fundamental modes provide a basis for all the possible oscillating modes that the system can exhibit.  
+                </p>
+                <h3>Theoretical Angular Frequencies</h3>
+                <p>
+                    In the table on the right, the theoretical angular frequencies and the required relative amplitudes of the carts is displayed for each of the fundamental oscillating modes. The frequencies for each mode are calculated using “k” (the average spring constant) and “m” (the average mass of the carts). Amplitudes (i.e., Initial Displacement in the simulator) are shown relative to each other. Their exact magnitude is a free choice however the listed relations must stay true.
+                </p> 
+            </div>
+        
+            <div id="side-bar">
+                <img id="TableofModes" src="TableofModes.jpg">
+            </div>  
+        </div>
+        <div class="fullBlock">
+            <div id="main-block">
+                <h3>Experiment Results</h3>
+                <p>
+                    The simulated frequency of the fundamental modes compared favorably with the theoretical/expected values with the largest difference being less than 0.005 Hz. See table...  
+                </p>
+                
+            </div>
+            
+            <div id="side-bar">
+                <img id="ExperimentResults" src="ExperimentResults.png">
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 500px;"></div>
+</body>
+</html>
