@@ -1,0 +1,127 @@
+body {
+    backGround-color: black;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+    cursor: url('cursor.png'), auto; /*replace this with the desired png later*/
+}
+
+#gameContainer {
+    position: relative;
+}
+
+#gameCanvas {
+    background: url('spacebackground.jpg') repeat;
+    border: 3px solid #fff;
+    border-radius: 5px;
+}
+
+.button-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+  
+.game-button {
+    font-family: 'Press Start 2P', cursive;
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+}
+  
+#pauseButton {
+    margin-right: 20px;
+}
+  
+#fullscreenButton {
+    margin-left: 20px;
+}
+
+#fullscreenButton:hover {
+    color: #888;
+    border-color: white;
+}
+
+#pauseButton:hover {
+    color: #888;
+    border-color: white;
+}
+
+#game-over {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color:rgba(105, 105, 105, 0.3);
+    padding: 2%;
+}
+
+#game-over-text {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3em;
+}
+
+#play-again-button {
+    display: inline-block;
+    /*border: 3px solid white;
+    border-radius: 5px;*/
+    background: none;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#game-start {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color:rgba(105, 105, 105, 0.3);
+    padding: 2%;
+}
+
+#game-start-text {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3em;
+}
+
+#play-button {
+    display: inline-block;
+    /*border: 3px solid white;
+    border-radius: 5px;*/
+    background: none;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+
+

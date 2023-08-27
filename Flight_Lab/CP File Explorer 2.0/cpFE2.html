@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CP File Explorer 2.0</title>
+  <script src="https://cdn.plot.ly/plotly-1.8.0.min.js"></script>
+  <script src="jStat.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/jstat/jstat@1.7.1/dist/jstat.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="cpFE2.css">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EGLL7J3W9L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EGLL7J3W9L');
+</script>
+
+<body>
+    <div id="dataset-management" class="container">
+        <select id="dataset-select" class="dropdown">
+        <option value="new">New Dataset</option>
+        </select>
+        <button id="next-button" class="button">Next</button>
+        <button id="reset-button" class="button">Reset Plots</button>
+        <form id="data-form" style="display: none;">
+            <button type="button" id="create-update-button" class="button">Create Dataset</button>
+            <button type="button" id="discard-delete-button" class="button">Discard</button>
+            <button type="button" id="save-dataSet" class="button">Save DataSet</button>
+            <div class="custom-file-upload" id="custom-file-upload-div">
+                <label for="load-dataSet" class="file-upload-label">Load DataSet(s)</label>
+                <input type="file" id="load-dataSet" multiple style="display: none" />                
+            </div>
+            
+            
+            <!-- Meta Data -->
+            <div>
+                <input id="nickname" type="text" placeholder="Nickname" class="meta-inputs">
+            </div>
+            <div>
+                <label for="wign-sweep">Wing Sweep (degrees):</label>
+                <label for="air-pressure">Air Pressure (Pa):</label>
+                <label for="air-temperature">Air Temperature (C):</label>
+                <label for="cord-length">Cord length (m):</label>
+                <label for="unit-conversion">Unit Conversion (to Pa):</label>
+            </div>
+            <div>
+                <input id="wing-sweep" type="number" placeholder="Wing Sweep" class="meta-inputs" value="35">
+                <input id="air-pressure" type="number" placeholder="Air Pressure" class="meta-inputs" value="101500">
+                <input id="air-temperature" type="number" placeholder="Air Temperature" class="meta-inputs" value="21.1">
+                <input id="cord-length" type="number" placeholder="Cord Length (m)" class="meta-inputs" value="0.29">
+                <input id="unit-conversion" type="number" class="meta-inputs" value="0.24909">
+            </div>
+            <br>
+            <!-- Main Data File Submission -->
+            <div>
+                <div class="file-input">
+                <label for="main-data-file" >Main Data File: </label>
+                <input id="main-data-file" type="file" class="file">
+                </div>
+                <div class="number-input">
+                    <div>
+                        <label for="groupTOPRangeInput">Enter top range:</label>
+                        <input type="text" id="groupTOPRangeInput" name="groupTOPRangeInput" value="5:34">
+                    </div>
+                    <div>
+                        <label for="groupBOTTOMRangeInput">Enter bottom range:</label>
+                        <input type="text" id="groupBOTTOMRangeInput" name="groupBOTTOMRangeInput" value="42:49">
+                    </div>
+                    <div>
+                        <label for="groupPPRangeInput">Enter pitot sensor:</label>
+                        <input type="text" id="groupPPRangeInput" name="groupPPRangeInput" value="52">
+                    </div>
+                </div>
+            </div>
+            <!-- Optional Pressure Calibration File Submission -->
+            <div>
+                <div>
+                <label for="pressure-calibration-file">Calibration File: (optional)</label>
+                <input id="pressure-calibration-file" type="file" class="file">
+                </div>
+                <div>
+                    <div>
+                        <label for="cali-row">Calibration row: </label>
+                        <input id="cali-row" type="number" class="cali-row" value="0">
+                    </div>
+                </div>
+            </div>
+            <!-- Coordinates File Submission -->
+            <div>
+                <div>
+                <label for="coordinates-file">Coordinates File: </label>
+                <input id="coordinates-file" type="file" class="file">
+                </div>
+                <div>
+                    <div>
+                        <label for="coordTOPRangeInput">Enter top range:</label>
+                        <input type="text" id="coordTOPRangeInput" name="coordTOPRangeInput" value="5:34">
+                    </div>
+                    <div>
+                        <label for="coordBOTTOMRangeInput">Enter bottom range:</label>
+                        <input type="text" id="coordBOTTOMRangeInput" name="coordBOTTOMRangeInput" value="42:49">
+                    </div>
+                    <div>
+                        <label for="coordinates-row">Coordinates row: </label>
+                        <input id="coordinates-row" type="number" class="coordinates-row" value="0">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="app-section">
+        <!-- Section 2 -->
+        <div id="data-inspection-section">
+            <div class="column">
+                <!-- Dropdown -->
+                <select id="data-select-1"  class="dropdown">
+                    <option value="empty">select</option>
+                    <!-- Options will be populated dynamically using JS -->
+                </select>
+
+                <!-- Velocity Plot -->
+                <div id="velocity-plot-1" class="plot">
+                    <!-- Plot will be created using Plotly.js -->
+                </div>
+
+                <!-- Alpha Plot -->
+                <div id="alpha-plot-1" class="plot">
+                    <!-- Plot will be created using Plotly.js -->
+                </div>
+
+                <div class="range-inputs">
+                    <label for="left-1" >Left</label>
+                    <label for="right-1" >Right</label>
+                </div>
+                <div class="range-inputs">
+                    <input id="left-1" type="number" placeholder="left" >
+                    <input id="right-1" type="number" placeholder="right" >
+                </div>
+                <div class="range-inputs">
+                    <input id="leftDis-1" type="number" placeholder="left" disabled="true">
+                    <input id="rightDis-1" type="number" placeholder="right" disabled="true">
+                </div>
+
+                <!-- Raw Pressure Plot -->
+                <div id="pressure-plot-1" class="plot">
+                    <!-- Plot will be created using Plotly.js -->
+                </div>
+            </div>
+
+            <!-- Repeat the above structure for the second column -->
+
+            <div class="column">
+                <!-- Dropdown -->
+                <select id="data-select-2"  class="dropdown">
+                    <option value="empty">select</option>
+                    <!-- Options will be populated dynamically using JS -->
+                </select>
+
+                <!-- Velocity Plot -->
+                <div id="velocity-plot-2" class="plot">
+                    <!-- Plot will be created using Plotly.js -->
+                </div>
+
+                <!-- Alpha Plot -->
+                <div id="alpha-plot-2" class="plot">
+                    <!-- Plot will be created using Plotly.js -->
+                </div>
+
+                <div class="range-inputs">
+                    <label for="left-2" >Left</label>
+                    <label for="right-2" >Right</label>
+                </div>
+                <div class="range-inputs">
+                    <input id="left-2" type="number" placeholder="left" >
+                    <input id="right-2" type="number" placeholder="right" >
+                </div>
+                <div class="range-inputs">
+                    <input id="leftDis-2" type="number" placeholder="left" disabled="true">
+                    <input id="rightDis-2" type="number" placeholder="right" disabled="true">
+                </div>
+
+                <!-- Raw Pressure Plot -->
+                <div id="pressure-plot-2" class="plot">
+                    <!-- Plot will be created using Plotly.js -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="range-inputs">
+            <p>Error Bar Settings:</p>
+        </div>
+        <div class="range-inputs">
+            <label for="error-switch" >Error Bars (ON/OFF):</label>
+            <label class="switch">
+                <input type="checkbox" id="error-switch">
+                <span class="slider round"></span>
+            </label>
+            <label for="confidence" >Confidence (%):</label>
+            <input id="confidence" type="number" value="95" min="1" max="99">
+        </div>
+        <div id="cp-plot-section">
+            <!-- Coefficient of Pressure Plot -->
+            <div id="cp-plot" class="plot">
+                <!-- Plot will be created using Plotly.js -->
+            </div>
+        </div>
+
+        <!-- Section 4 -->
+        <h2>Sensor Analysis</h2>
+        <div id="data-inspection-section">
+            <div class="column">
+                <!-- Standard Deviation Top -->
+                <div id="stDevTop-plot-1" class="plot">
+                    <!-- Plot will be created using Plotly.js -->
+                </div>
+
+                <!-- Standard Deviation bottom -->
+                <div id="stDevBot-plot-1" class="plot">
+                    <!-- Plot will be created using Plotly.js -->
+                </div>
+                
+                <!-- Dropdown -->
+                <label>Select Sensor: </label>
+                <select id="data-select-1-2"  class="dropdown">
+                    <option value="empty">select</option>
+                    <!-- Options will be populated dynamically using JS -->
+                </select>
+
+                <!-- Time series plot -->
+                <div id="tSeries-plot-1" class="plot">
+                    <!-- Plot will be created using Plotly.js -->
+                </div>
+
+                <!-- Histogram plot -->
+                <label >Bins Mode:</label>
+                <select id="bins-mode-select-1"  class="dropdown">
+                    <option value= "true"> auto bins</option>
+                    <option value= "false"> manual bins</option>
+                </select>
+
+                <label>Number of Bins: </label>
+                <input id="bins-input-1" type="number" min="1" max="50" value="5">
+
+                <div id="hist-plot-1" class="plot">
+                    <!-- Plot will be created using Plotly.js -->
+                </div>
+            </div>
+
+            <!-- Repeat the above structure for the second column -->
+
+            <div class="column">
+                <!-- Standard Deviation Top -->
+                <div id="stDevTop-plot-2" class="plot">
+                    <!-- Plot will be created using Plotly.js -->
+                </div>
+
+                <!-- Standard Deviation bottom -->
+                <div id="stDevBot-plot-2" class="plot">
+                    <!-- Plot will be created using Plotly.js -->
+                </div>
+                
+                <!-- Dropdown -->
+                <label>Select Sensor: </label>
+                <select id="data-select-2-2"  class="dropdown">
+                    <option value="empty">select</option>
+                    <!-- Options will be populated dynamically using JS -->
+                </select>
+
+                <!-- Time series plot -->
+                <div id="tSeries-plot-2" class="plot">
+                    <!-- Plot will be created using Plotly.js -->
+                </div>
+
+                <!-- Histogram plot -->
+                <label >Bins Mode:</label>
+                <select id="bins-mode-select-2"  class="dropdown">
+                    <option value= "true"> auto bins</option>
+                    <option value= "false"> manual bins</option>
+                </select>
+
+                <label>Number of Bins: </label>
+                <input id="bins-input-2" type="number" min="1" max="100" value="5">
+
+                <div id="hist-plot-2" class="plot">
+                    <!-- Plot will be created using Plotly.js -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="cpFE2.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Snake Game</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+        <link rel="stylesheet" href="snake.css">
+    </head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EGLL7J3W9L"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-EGLL7J3W9L');
+    </script>
+
+    <body>
+        <div id="gameContainer">
+            <canvas id="gameCanvas"></canvas>
+            <div class="button-container">
+                <button class="game-button" id="pauseButton">Pause</button>
+                <button class="game-button" id="fullscreenButton">Fullscreen</button>
+            </div>
+        </div>
+        <div id="game-over">
+            <h1 id="game-over-text">Game Over</h1>
+            <h2 id="game-score"></h2>
+            <button id="play-again-button">Play Again</button>
+        </div>
+        <div id="game-start">
+            <h1 id="game-start-text">Cosmic Snake</h1>
+            <h2 id="game-score"></h2>
+            <button id="play-button">Play</button>
+        </div>
+        <script src="snake.js"></script>
+    </body>
+</html>

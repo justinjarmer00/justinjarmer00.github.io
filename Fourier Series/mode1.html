@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="mode1.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Mode 1: Random Fourier Series</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Randomly Generated Fourier Series</h1>
+        <p>Select the parameters and generate your own Fourier Series!</p>
+        
+        <div id="chart-container">
+            <canvas id="mainChart"></canvas>
+        </div>
+
+        <div id="main-chart">
+            <!-- Main chart goes here -->
+        
+            <!-- Dropdown menu for choosing full series or a specific harmonic -->
+            <div class="chart-selector">
+                <label for="chart-select">View:</label>
+                <select name="chart-select" id="chart-select">
+                    <option value="full">Full Fourier Series</option>
+                </select>
+            </div>
+        </div>        
+        
+        <div class="controls">
+            <label for="harmonics">Number of Harmonics:</label>
+            <input type="number" id="numHarmonics" value="10" min = "1">
+            
+            <label for="decay">Decay Rate:</label>
+            <input type="number" id="decayRate" value="1.05" step = "0.01" min = "0.01">
+            
+            <label for="base">Base Frequency:</label>
+            <input type="number" id="baseFrequency" value = "1" min = "1">
+
+            <button id="generateButton">Generate</button>
+        </div>
+
+        <div class="introduction">
+            <h2>Welcome to the Random Fourier Series Generator!</h2>
+            <p>Fourier series is a fantastic mathematical tool that allows us to break down complex periodic functions into simpler harmonic components. But understanding Fourier series can be challenging, especially without seeing them in action. This page, Mode 1, was built to help explore the magic of Fourier series in a fun, interactive way. Using AI tools like GPT-4, we've designed a Random Fourier Series Generator for you. Not only does it generate a Fourier series with adjustable parameters, but it also displays the coefficients and phase angles of each harmonic in a scatter plot. So let's dive in and explore!</p>
+        </div>
+        
+        <div class="instructions">
+            <h2>How to Use the Random Fourier Series Generator</h2>
+            <ol>
+                <li>Start by inputting your desired parameters: the number of harmonic functions, the decay rate of the coefficients, and the base frequency of the function.</li>
+                <li>Click the 'Generate' button to create a random Fourier series based on your parameters.</li>
+                <li>The main chart at the top will display the waveform of the generated Fourier series. The shape of the waveform is the sum of all the harmonic functions in the series.</li>
+                <li>Just below the main chart, you can select whether to see the total function or just one of the harmonics. This gives you a detailed insight into how each harmonic contributes to the overall function.</li>
+                <li>Further down the page, you will find scatter plots showing the coefficients and phase angles of each harmonic. This provides a visualization of the strength of the decay factor and the distribution of phase angles.</li>
+                <li>Feel free to adjust the parameters and generate new Fourier series as many times as you like. Have fun exploring!</li>
+            </ol>
+        </div>        
+        
+        <div class="scatter-plots">
+            <div id="coefficients-container">
+                <canvas id="coeffPlot"></canvas>
+            </div>
+            <div id="phases-container">
+                <canvas id="phasePlot"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="mode1.js"></script>
+</body>
+</html>

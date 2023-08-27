@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="mode2.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dsp.js"></script>
+    <title>Mode 2: Drawn Fourier Series</title>
+</head>
+<body>
+    <div class="container">
+        <h1>User Input - Fourier Approximation</h1>
+
+        <div class="introduction">
+            <h2>Welcome to the User Input - Fourier Series Generator!</h2>
+            <p>Now, you can draw your own function, and the generator will create a Fourier series to approximate it. It's a fun and interactive way to understand how Fourier series can approximate any periodic function.</p>
+        </div>
+
+        <div class="instructions">
+            <h2>How to Use the User Input - Fourier Series Generator:</h2>
+            <ol>
+                <li>Start by drawing your desired function on the canvas slowly. The canvas records points based on their x-coordinate, so it's important to draw slowly for smooth functions.</li>
+                <li>For more interesting shapes, try drawing quickly and taking multiple passes across the canvas.</li>
+                <li>If you make a mistake or want to change your drawing, click the 'Clear' button and start again.</li>
+                <li>Once you're happy with your drawing, input the number of harmonics you want to include in the Fourier series in the "Number of Harmonics" field, then click the 'Generate' button. Your Fourier series will be created and displayed in the main chart.</li>
+                <li>Every time you change the number of harmonics, the main chart will update to show the new approximation of your drawing by the Fourier series.</li>
+                <li>In some cases, if the Fourier series approximation does not load, clear the canvas and try again (sorry in advance).</li>
+                <li>Enjoy exploring and feel free to create new drawings and generate their Fourier series as many times as you like!</li>
+            </ol>
+        </div>
+
+        <p>Create your own Fourier series by drawing on the canvas!</p>
+
+        <div class="canvas-container">
+            <!-- Placeholder for the canvas -->
+            <canvas id="drawingCanvas"></canvas>
+        </div>
+        
+        <div class="controls">
+            <button id="clear-btn">Clear</button>
+            <label for="harmonics">Number of Harmonics:</label>
+            <input type="number" id="numHarmonics" value="0" min = "0">
+            <button id="generate-btn">Generate</button>
+        </div>
+            
+        <div id="canvas-container">
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <div>
+            <h2>An Explanation from OpenAI's ChatGPT</h2>
+            <p>If you've been exploring this tool, you might have noticed something strange. Once the 'Number of Harmonics' (which determines the number of terms in our Fourier series approximation) surpasses 150, the approximation starts looking worse, not better. You might think, "The more terms we use, the closer the approximation should be, right?" Here's why that isn't always the case.</p>
+            <p>When we're turning a complex wave (like a picture or a song) into a bunch of numbers, we have to decide how many numbers to use. This process is like taking a picture of a scene. The more photos we take, the clearer the final image will be. The 'rate' at which we take these photos is like our sampling rate.</p>
+            <p>But, there's a catch. If we try to represent something that's changing very rapidly, we need to take pictures very quickly to capture those changes. If we don't, weird effects start to happen. Imagine trying to take a photo of a spinning fan with a slow camera - the fan might appear to be still or even spinning backwards! This is called 'aliasing.'</p>
+            <p>In our case, we're trying to draw a complicated shape with a series of simple waves (sine and cosine waves). We add these waves together to create our shape. The more waves we use (the higher the 'n' value), the closer our approximation will be. But if we try to use more waves than half the total number of data points we have (this is known as the Nyquist frequency), we run into the aliasing problem.</p>
+            <p>This is why, when 'n' reaches half the total number of points, our approximation actually starts to look worse. We're trying to represent changes that are too rapid for the amount of data we have. To solve this, we would need more data points, like taking more photos to accurately capture a rapidly spinning fan.</p>
+        </div>
+    </div>
+    <script src="mode2.js"></script>
+</body>
+</html>

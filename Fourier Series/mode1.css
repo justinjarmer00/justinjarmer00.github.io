@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #444;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+h1 {
+    color: #a21818;
+    text-align: center;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.controls label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.controls input {
+    width: 50px;
+}
+
+#generateButton {
+    background-color: #a21818;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.scatter-plots {
+    display: flex;
+    justify-content: space-around;
+}
+
+#chart-container, #coefficients-container, #phases-container {
+    width: 100%;
+    height: 400px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}

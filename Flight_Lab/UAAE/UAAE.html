@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UofA RC Attitude Estimator</title>
+    <link rel="stylesheet" type="text/css" href="UAAE.css">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EGLL7J3W9L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EGLL7J3W9L');
+</script>
+
+<body>
+    <h1>U of A Flight Lab RC Attitude Estimator</h1>
+    <div id="app">
+        <div class="column" id="input-container">
+            <input type="file" id="input-files" multiple>
+            <label for="wing-span">Wing Span:</label>
+            <input type="number" id="wing-span" name="wing-span" value="3.048">
+            <label for="weight">Weight:</label>
+            <input type="number" id="weight" name="weight" value="15">
+            <label for="wing-sweep">Wing Sweep:</label>
+            <input type="number" id="wing-sweep" name="wing-sweep" value="35">
+            <label for="chord-length">Chord Length:</label>
+            <input type="number" id="chord-length" name="chord-length" value="0.3048">
+            <label for="air-temperature">Air Temperature:</label>
+            <input type="number" id="air-temperature" value="21.1" name="air-temperature">
+            <label for="air-pressure">Air Pressure:</label>
+            <input type="number" id="air-pressure" value="101500" name="air-pressure">
+            <label for="AR">AR:</label>
+            <input type="number" id="AR" value="10" name="AR">
+            <button id="submit-button">Submit</button>
+        </div>
+        <div class="column" id="chart-container">
+            <canvas id="chart"></canvas>
+            <select id="select-property">
+                <option value="ClRaw">ClRaw</option>
+                <option value="ClSlope">ClSlope</option>
+                <option value="ClAccel">ClAccel</option>
+                <option value="Cl">Cl</option>
+                <option value="Cl_ClRaw">Cl + ClRaw</option>
+                <option value="Cd">Cd</option>
+                <option value="Cdp">Cdp</option>
+                <option value="Cm">Cm</option>
+                <option value="Top_Xtr">Top_Xtr</option>
+                <option value="Bot_Xtr">Bot_Xtr</option>
+            </select>
+        </div>
+    </div>
+    <div id="value-selection-container">
+        <div class="value-selection" id="speed-selection">
+            <h2>Speed Selection</h2>
+            <select id="speed-start">
+                <!-- Options will be added dynamically -->
+            </select>
+            <select id="speed-end">
+                <!-- Options will be added dynamically -->
+            </select>
+            <select id="speed-increment">
+                <!-- Options will be added dynamically -->
+            </select>
+            <select id="speed-tolerance">
+                <!-- Options will be added dynamically -->
+            </select>
+            <button id="speed-generate">Generate</button>
+        </div>
+        <div class="value-selection" id="alpha-selection">
+            <h2>Alpha Selection</h2>
+            <select id="alpha-start">
+                <!-- Options will be added dynamically -->
+            </select>
+            <select id="alpha-end">
+                <!-- Options will be added dynamically -->
+            </select>
+            <select id="alpha-increment">
+                <!-- Options will be added dynamically -->
+            </select>
+            <select id="alpha-tolerance">
+                <!-- Options will be added dynamically -->
+            </select>
+            <button id="alpha-generate">Generate</button>
+        </div>
+    </div>
+    <div id="tile-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="UAAE.js"></script>
+</body>
+</html>

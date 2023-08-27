@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #B22222;  /* FireBrick color */
+    text-align: center;
+    padding: 20px;
+}
+
+.modes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.mode {
+    border: 1px solid #B22222;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.mode a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #B22222;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.mode a:hover {
+    background-color: #800000;  /* Dark red on hover */
+}

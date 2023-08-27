@@ -1,0 +1,270 @@
+.app-description, .app-thumbnail, .app-links {
+    display: none;
+}
+
+.tab-description, .tab-title {
+    display: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+nav {
+    margin-top: 1em;
+}
+
+.tab-button {
+    background-color: #555;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.tab-button:focus {
+    outline: none;
+}
+
+.tab-content {
+    padding: 20px;
+    background-color: #333;
+    margin: 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: auto; /* this pushes the footer to the bottom */
+}
+
+.app,
+.app-thumbnail,
+.app-description {
+    margin: 0;
+    padding: 0;
+}
+
+.app{
+    display: flex;
+    flex-wrap: wrap; /* This allows child elements to wrap onto the next line */
+    align-items: start;
+    margin-bottom: 20px;
+    gap: 20px; /* Space between the columns */
+}
+
+.app-thumbnail {
+    flex: 0 0 30%; /* This ensures the thumbnail takes up 30% of the parent width and does not grow or shrink */
+}
+
+.app-description {
+    flex: 1 0 50%; /* This ensures the description takes up 70% of the parent width and does not grow or shrink */
+}
+
+.app-links {
+    flex-basis: 100%; /* This makes the links span the full width of the parent */
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.app h3 {
+    margin: 0;
+}
+
+.app p {
+    margin: 5px 0;
+}
+
+.app a {
+    margin-right: 10px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.app a:hover {
+    text-decoration: underline;
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: black;   /* Adjust the color as per your preference */
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Resetting some default browser styles */
+body, h1, h2, h3, p, button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: 'Courier New', Courier, monospace; /* Typical console font */
+}
+
+body {
+    background-color: black;
+    color: limegreen; /* Classic terminal green */
+    font-size: 16px;
+}
+
+header {
+    background-color: #333; /* Slightly lighter black */
+    padding: 10px;
+    border-bottom: 2px solid limegreen;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    color: limegreen;
+    font-size: 1.5em;
+}
+
+nav {
+    display: flex;
+}
+
+.tab-button {
+    background-color: #333;
+    color: limegreen;
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.tab-button:hover {
+    background-color: limegreen;
+    color: black;
+}
+
+.tab-content {
+    padding: 20px;
+}
+
+.tab-content h2, .tab-content h3 {
+    margin-bottom: 10px;
+    color: limegreen;
+}
+
+.tab-content p, .tab-content a {
+    color: limegreen;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.tab-content a:hover {
+    text-decoration: underline;
+}
+
+.app {
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.app-thumbnail {
+    width: 100%;
+    max-width: 300px; /* adjust as needed */
+    margin-bottom: 10px;
+}
+
+
+.app-thumbnail img {
+    width: 100%;
+    max-width: 300px;
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+    border-top: 2px solid limegreen;
+}
+
+/* Cursor styling */
+.typing-cursor {
+    display: inline-block;
+    width: 5px;
+    height: 1em;
+    background-color: limegreen;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #2E2E2E;  /* Slightly lighter gray for track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: limegreen;  /* Green thumb */
+}
+
+/* For Firefox, if you want */
+scrollbar-thumb {
+    background-color: limegreen;  /* Green thumb */
+}
+
+scrollbar-track {
+    background-color: #2E2E2E;  /* Slightly lighter gray for track */
+}
+
+/* Base styling for the app-thumbnail */
+.app-thumbnail a {
+    display: inline-block;  /* Allows the use of transform and other styles */
+    transition: all 0.3s ease;  /* Smooth transition for all properties */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);  /* Initial soft shadow */
+}
+
+/* Image styling */
+.app-thumbnail img {
+    display: block;  /* Removes default spacing below images */
+    width: 100%;  /* Make the image responsive */
+    transition: all 0.3s ease;  /* Smooth transition for all properties */
+}
+
+/* Hover effects */
+.app-thumbnail a:hover {
+    transform: scale(1.05);  /* Slightly scales the image container */
+    box-shadow: 0px 0px 15px limegreen;  /* Greenish glow on hover */
+}
+
+.app-thumbnail a:hover img {
+    opacity: 0.8;  /* Slightly reduces the image opacity on hover */
+}
+
+
+

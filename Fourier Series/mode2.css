@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #444;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+h1 {
+    color: #a21818;
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+}
+
+.canvas-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.controls label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.controls input {
+    width: 50px;
+}
+
+#drawingCanvas {
+    border: 1px solid #000;
+    width: 80%;
+    aspect-ratio: 2 / 1;
+}
+
+#chart-container {
+    width: 80%;
+    margin: auto;
+}
+
+button {
+    
+    margin: auto;
+    padding: 10px 20px;
+}

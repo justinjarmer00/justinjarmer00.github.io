@@ -1,0 +1,123 @@
+body {
+    background-color: #2b2b2b;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+}
+
+#app {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.column {
+    flex: 1;
+}
+
+#input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#input-container input {
+    margin-bottom: 20px;
+}
+
+#chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#chart {
+    max-width: 400px;
+    max-height: 600px;
+}
+
+#input-files, #submit-button, #select-property {
+    background-color: #4a4a4a;
+    color: #e0e0e0;
+    border-color: #4a4a4a;
+    margin: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #e0e0e0;
+}
+
+#value-selection-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.value-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    padding: 20px;
+    background-color: #333333;
+    border-radius: 10px;
+}
+
+.value-selection h2 {
+    margin-bottom: 20px;
+}
+
+.value-selection select,
+.value-selection button {
+    margin-bottom: 10px;
+}
+
+#tile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.tile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    padding: 20px;
+    background-color: #333333;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.descriptor {
+    width: 25%;
+}
+
+.tile-title {
+    font-size: 24px; /* Adjust as needed */
+}
+
+.tile-speed {
+    font-size: 18px; /* Adjust as needed */
+}
+
+.value-div {
+    width: 10%;
+    background-color: #444444;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    height: 80px;
+    margin: 5px;
+}

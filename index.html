@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Justin Jarmer, Coupled Oscillator Simulator, A Saxy Saxon, coupled oscillator simulation, Evolution Board Game Played by Computer, Evolution Board Game">
+    <meta name="keywords" content="Justin Jarmer, snake, Cosmic Snake Game, Flight_Lab, Fourier Series, Coupled Oscillator Simulator, asaxysaxon, coupled oscillator simulation, Evolution Board Game Played by Computer, Evolution Board Game">
     <title>asaxysaxon.com</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EGLL7J3W9L"></script>
 <script>
@@ -18,46 +18,97 @@
   gtag('config', 'G-EGLL7J3W9L');
 </script>
 
-<h1>asaxysaxon.com</h1>
-<h4>>>> A website to showcase some of my work...</h4> 
-<h4>Here are a few of my Javascript Projects:</h4>
-
-<a href="EvolutionJS/evolution.html" target="_blank">
-    <img src="indexAssets/EvolutionJSImage.png" width="400">
-    <br>Evolution Board Game Played By Computer
+<body>
+    <header>
+        <h1>asaxysaxon.com</h1>
+        <nav>
+            <button class="tab-button" onclick="showTab('games')">Apps/Games</button>
+            <button class="tab-button" onclick="showTab('about')">About Author / Contact</button>
+        </nav>
+    </header>
+    
+    <div class="tab-content" id="games">
+        <!-- Placeholder content for the games/apps. This would be further populated. -->
+        <div class="app">
+            <h2 class="tab-title">Apps and Games</h2>
+            <p class="tab-description">Welcome to my collection of projects...</p>
+        </div>    
+            
+<!-- App 1 -->
+<div class="app">
+<div class="app-thumbnail">
+<!-- Make the image act as a link -->
+<a href="./SNAKE/snake.html" target="_blank">
+<img src="CosmicSnake.png" alt="Thumbnail for App/Game 1">
 </a>
-
-<br><br>
-
-<a href="cuposcsim/cuposcsim.html" target="_blank">
-    <img src="indexAssets/cuposcsimImage.png" width="400">
-    <br>Coupled Oscillator Simulator
+</div>
+<div class="app-description">
+<h3>CosmicSnake (Beta)</h3>
+<p>A fun twist on the original snake game</p>
+</div>
+</div>
+    
+<!-- App 2 -->
+<div class="app">
+<div class="app-thumbnail">
+<!-- Make the image act as a link -->
+<a href="./Fourier Series/fourier.html" target="_blank">
+<img src="Fourier.png" alt="Thumbnail for App/Game 1">
 </a>
-<br><br>
+</div>
+<div class="app-description">
+<h3>Fourier Series</h3>
+<p>A few programs that are meant to help visualize Fourier Series</p>
+</div>
+</div>
 
-<h4>Some interesting presentations:</h4>
-<a href="indexAssets/CrossFlowInstability_JustinJarmer_2022.pdf" target="_blank">
-    Cross Flow Instability
-</a><br>
-<a href="indexAssets/KelvinHelmholtzInstability_JustinJarmer_2022.pdf" target="_blank">
-    Kelvin Helmholtz Instability
-</a><br>
-<a href="indexAssets/DIY racing game python.pdf" target="_blank">
-    DIY Racing Game (Python)
-</a><br>
-<a href="indexAssets/Index of Refraction of Air Presentation.pdf" target="_blank">
-    Calculating the Index of Refraction of Air (Experiment)
-</a><br>
-<a href="indexAssets/Water Cooled CPU Analysis.pdf" target="_blank">
-    Water Cooled CPU ANSYS (student edition)
-</a><br>
-<br>
-
-<h4>About Author:</h4> 
-<a href="indexAssets/AuthorPic.jpg" target="_blank">
-    <img src="indexAssets/AuthorPic.jpg" width="400">   
+<!-- App 3 -->
+<div class="app">
+<div class="app-thumbnail">
+<a href="./Flight_Lab/flight_lab.html" target="_blank">
+<img src="Flight_Lab.png" alt="Thumbnail for App/Game 1">
 </a>
-<h4>Justin Jarmer</h4>
-<p>
-    -> B.S. in Mechanical Engineering<br>-> Pursuing a M.S. in Aerospace Engineering<br>-> NCAA Division 3 Swim & Dive Alumni 
-</p>
+</div>
+<div class="app-description">
+<h3>UA Flight Lab</h3>
+<p>A few tools designed specifically for the University of Arizona Flight Lab</p>
+</div>
+</div>
+
+<!-- App 4 -->
+<div class="app">
+<div class="app-thumbnail">
+<a href="./Original/original.html" target="_blank">
+<img src="Evolution.png" alt="Thumbnail for App/Game 1">
+</a>
+</div>
+<div class="app-description">
+<h3>Original asaxysaxon.com Programs</h3>
+<p>My original Javascript projects</p>
+</div>
+</div>
+</div>
+
+<div class="tab-content" id="about" style="display: none;">
+    <!-- Placeholder content for about & contact. This would be further populated. -->
+    <h2>About Me</h2>
+    <!--<p>All about asaxysaxon...</p>-->
+    <div class="app-thumbnail">
+        <img src="AuthorPic.jpg" alt="Thumbnail for App/Game 1">
+    </div>
+    <div class="app-description">
+        <h3>Justin Jarmer (JJ)</h3>
+        <p>
+            -> B.S. in Mechanical Engineering from Alfred University<br>-> Pursuing a M.S. in Aerospace Engineering at University of Arizona<br>-> NCAA Division 3 Swim & Dive Alumni 
+        </p>
+    </div>
+    
+</div>
+
+<footer>
+    <p>&copy; 2023 asaxysaxon.com</p>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>
