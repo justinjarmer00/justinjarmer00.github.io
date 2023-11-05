@@ -32,6 +32,9 @@ let bosses = [];
 let bossesMade = 0;
 let initialStart = false;
 
+// Check if the user is on a mobile device
+const isMobile = 'ontouchstart' in document.documentElement;
+
 for (let i = 0; i < gaussianLookup.length; i++) {
     // Convert the index to a value between 0 and 3
     let x = i * 0.03;
@@ -2293,6 +2296,66 @@ function movePlayer(e) {
     }
 }
 
+let xDown = null;
+let yDown = null;
+let timeDown = null;
+
+function getTouches(evt) {
+  return evt.touches ||             // browser API
+         evt.originalEvent.touches; // jQuery
+}
+
+function handleTouchStart(evt) {
+  const firstTouch = getTouches(evt)[0];
+  xDown = firstTouch.clientX;
+  yDown = firstTouch.clientY;
+  timeDown = new Date().getTime();
+}
+
+function handleTouchMove(evt) {
+  if (!xDown || !yDown) {
+    return;
+  }
+
+  let xUp = evt.touches[0].clientX;
+  let yUp = evt.touches[0].clientY;
+
+  let xDiff = xDown - xUp;
+  let yDiff = yDown - yUp;
+
+  if (Math.abs(xDiff) > Math.abs(yDiff)) { // Most significant.
+    if (xDiff > 0) {
+      /* left swipe */
+      movePlayer({ key: 'ArrowLeft' });
+    } else {
+      /* right swipe */
+      movePlayer({ key: 'ArrowRight' });
+    }
+  } else {
+    if (yDiff > 0) {
+      /* up swipe */
+      movePlayer({ key: 'ArrowUp' });
+    } else {
+      /* down swipe */
+      movePlayer({ key: 'ArrowDown' });
+    }
+  }
+  // Reset values
+  xDown = null;
+  yDown = null;
+}
+
+function handleTouchEnd(evt) {
+  const timeUp = new Date().getTime();
+  if (timeDown && (timeUp - timeDown) < 500) { // Short tap
+    let timeDiff = timeUp - timeDown;
+    if (timeDiff < 300) { // Double tap (300 ms)
+      movePlayer({ key: ' ' }); // Space action
+    }
+  }
+  timeDown = null;
+}
+
 //buttons
 
 document.getElementById('play-button').addEventListener('click', function() {
@@ -2390,6 +2453,16 @@ document.addEventListener('fullscreenchange', function() {
     render(gameTime);
     fullscreenButton.innerText = document.fullscreenElement ? "Exit" : "Fullscreen";
 });
+
+if (isMobile) {
+    // Remove the keydown event listener as it's not needed on mobile
+    window.removeEventListener('keydown', movePlayer);
+  
+    // Add touch event listeners
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchmove', handleTouchMove, false);
+    document.addEventListener('touchend', handleTouchEnd, false);
+}
 
 fullscreenButton.addEventListener('click', function() {
     if (!document.fullscreenElement) {

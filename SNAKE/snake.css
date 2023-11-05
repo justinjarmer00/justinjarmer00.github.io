@@ -72,8 +72,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    background-color:rgba(105, 105, 105, 0.3);
+    background-color:rgba(105, 105, 105, 0.7);
     padding: 2%;
+    border-radius: 5px;
 }
 
 #game-over-text {
@@ -101,8 +102,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    background-color:rgba(105, 105, 105, 0.3);
+    background-color:rgba(105, 105, 105, 0.7);
     padding: 2%;
+    border-radius: 5px;
 }
 
 #game-start-text {
