@@ -2454,15 +2454,10 @@ document.addEventListener('fullscreenchange', function() {
     fullscreenButton.innerText = document.fullscreenElement ? "Exit" : "Fullscreen";
 });
 
-if (isMobile) {
-    // Remove the keydown event listener as it's not needed on mobile
-    window.removeEventListener('keydown', movePlayer);
-  
-    // Add touch event listeners
-    document.addEventListener('touchstart', handleTouchStart, false);
-    document.addEventListener('touchmove', handleTouchMove, false);
-    document.addEventListener('touchend', handleTouchEnd, false);
-}
+// Add touch event listeners
+document.addEventListener('touchstart', handleTouchStart, false);
+document.addEventListener('touchmove', handleTouchMove, false);
+document.addEventListener('touchend', handleTouchEnd, false);
 
 fullscreenButton.addEventListener('click', function() {
     if (!document.fullscreenElement) {
